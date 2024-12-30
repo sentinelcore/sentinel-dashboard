@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel Real-Time Logs</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+    
+    </style>
+</head>
+<body>
+    <h1>🔍 Sentinel Real-Time Logs</h1>
+
+    <!-- Controls Section -->
+    <div class="controls">
+        <button id="pause-logs">Pause Logs</button>
+        <button id="clear-logs">Clear Logs</button>
+        <input type="text" id="filter-logs" placeholder="Filter logs..." />
+    </div>
+
+    <!-- Log Viewer -->
+    <div id="log-container"></div>
+<script src="websocket_client.js"></script>

@@ -1,0 +1,55 @@
+ /* Inline style for simplicity if static/style.css is not used */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.controls button, .controls input {
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+#filter-logs {
+    width: 200px;
+}
+
+#log-container {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.log-entry {
+    margin: 2px 0;
+}
+
+.log-entry.success {
+    color: green;
+}
+
+.log-entry.error {
+    color: red;
+}
+
+.log-entry.warning {
+    color: orange;
+}

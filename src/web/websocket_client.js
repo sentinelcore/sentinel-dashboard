@@ -1,7 +1,15 @@
-// Establish WebSocket Connection
-const socket = new WebSocket("ws://127.0.0.1:8000/ws/logs");
+// websocket_client.js
 
-// Get UI Elements
+// Dynamic WebSocket URL
+const websocketUrl = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") 
+    ? "ws://127.0.0.1:8000/ws/logs"
+    : "wss://sentinel-dashboard-hnfl5snxn-sentinels-projects-51a4a159.vercel.app/ws/logs";
+
+console.log(`🔗 Connecting to WebSocket: ${websocketUrl}`);
+
+const socket = new WebSocket(websocketUrl);
+
+// UI Elements
 const logContainer = document.getElementById("log-container");
 const pauseButton = document.getElementById("pause-logs");
 const clearButton = document.getElementById("clear-logs");
@@ -12,7 +20,7 @@ let isPaused = false;
 // WebSocket Event Listeners
 socket.onopen = () => {
     console.log("✅ Connected to WebSocket Server");
-    addLogEntry("✅ Connected to WebSocket Server");
+    addLogEntry("✅ Connected to WebSocket Server", "success");
 };
 
 socket.onmessage = (event) => {
@@ -23,28 +31,19 @@ socket.onmessage = (event) => {
 
 socket.onerror = (error) => {
     console.error("❌ WebSocket Error:", error);
-    addLogEntry(`❌ WebSocket Error: ${error}`);
+    addLogEntry(`❌ WebSocket Error: ${error}`, "error");
 };
 
 socket.onclose = () => {
     console.log("🔌 Disconnected from WebSocket Server");
-    addLogEntry("🔌 Disconnected from WebSocket Server");
+    addLogEntry("🔌 Disconnected from WebSocket Server", "warning");
 };
 
 // Utility Functions
-function addLogEntry(message) {
+function addLogEntry(message, type = "default") {
     const logEntry = document.createElement("div");
-    logEntry.className = "log-entry";
+    logEntry.className = `log-entry ${type}`;
     logEntry.innerText = `[${new Date().toLocaleTimeString()}] ${message}`;
-
-    if (message.includes("✅")) {
-        logEntry.style.color = "green";
-    } else if (message.includes("❌") || message.includes("⚠️")) {
-        logEntry.style.color = "red";
-    } else {
-        logEntry.style.color = "black";
-    }
-
     logContainer.appendChild(logEntry);
     logContainer.scrollTop = logContainer.scrollHeight;
 }
@@ -75,4 +74,4 @@ pauseButton.addEventListener("click", togglePauseLogs);
 clearButton.addEventListener("click", clearLogs);
 filterInput.addEventListener("input", filterLogs);
 
-console.log("✅ WebSocket Client Initialized");
+console.log(`✅ WebSocket Client Initialized. Using URL: ${websocketUrl}`);

@@ -1,55 +1,185 @@
- /* Inline style for simplicity if static/style.css is not used */
- body {
+/* ========================= */
+/* 🌟 General Styles */
+/* ========================= */
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.controls {
+    background-color: #f9fafc;
+    color: #333;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+    flex-direction: column;
+    align-items: center;
 }
 
-.controls button, .controls input {
-    padding: 8px 12px;
-    font-size: 14px;
+h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #2c3e50;
 }
 
-#filter-logs {
-    width: 200px;
-}
-
+/* ========================= */
+/* 📝 Log Panel */
+/* ========================= */
 #log-container {
-    height: 400px;
+    width: 90%;
+    max-width: 800px;
+    height: 300px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px 0;
     overflow-y: scroll;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    margin: 0 auto;
-    width: 80%;
     padding: 10px;
-    font-family: monospace;
-    white-space: pre-wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .log-entry {
     margin: 2px 0;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.log-entry.default {
+    color: #333;
 }
 
 .log-entry.success {
-    color: green;
+    color: #2ecc71;
+    font-weight: bold;
 }
 
 .log-entry.error {
-    color: red;
+    color: #e74c3c;
+    font-weight: bold;
 }
 
 .log-entry.warning {
-    color: orange;
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.log-entry.info {
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Scrollbar Styling */
+#log-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#log-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#log-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#log-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ========================= */
+/* 🎛️ Log Controls */
+/* ========================= */
+#log-controls {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#pause-logs,
+#clear-logs {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#pause-logs:hover,
+#clear-logs:hover {
+    background-color: #1a252f;
+}
+
+#filter-logs {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 200px;
+}
+
+#filter-logs:focus {
+    border-color: #2c3e50;
+}
+
+/* ========================= */
+/* 📑 Directive Table */
+/* ========================= */
+#directiveTable {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#directiveTable th,
+#directiveTable td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+}
+
+#directiveTable th {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#directiveTable tr:nth-child(even) {
+    background-color: #f9fafc;
+}
+
+#directiveTable tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+#directiveTable tr:hover {
+    background-color: #ecf0f1;
+}
+
+/* ========================= */
+/* 📱 Responsive Design */
+/* ========================= */
+@media (max-width: 768px) {
+    #log-container {
+        height: 200px;
+    }
+
+    #directiveTable {
+        font-size: 12px;
+    }
+
+    #log-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #filter-logs {
+        width: 100%;
+    }
 }

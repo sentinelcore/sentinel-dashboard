@@ -13,12 +13,26 @@
     <h1>🔍 Sentinel Real-Time Logs</h1>
 
     <!-- Controls Section -->
-    <div class="controls">
+    <h2>📝 Logs</h2>
+    <div id="log-container"></div>
+    <div id="log-controls">
         <button id="pause-logs">Pause Logs</button>
         <button id="clear-logs">Clear Logs</button>
-        <input type="text" id="filter-logs" placeholder="Filter logs..." />
+        <input id="filter-logs" placeholder="Filter Logs" />
     </div>
+    
+    <h2>📑 Directives</h2>
+    <table id="directiveTable">
+        <thead>
+            <tr>
+                <th>Directive ID</th>
+                <th>Agent ID</th>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-    <!-- Log Viewer -->
-    <div id="log-container"></div>
+    
 <script src="websocket_client.js"></script>

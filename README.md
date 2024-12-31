@@ -72,3 +72,10 @@ This project is licensed under the [insert license name here]. See the LICENSE f
 │
 ├── requirements.txt            # Dependencies
 └── README.md                   # Documentation
+
+
+{
+    "python.analysis.extraPaths": [
+        "./src"
+    ]
+}

@@ -1,5 +1,6 @@
 import asyncio
 import websockets
+import json
 
 async def test_websocket():
     uri = "ws://127.0.0.1:8000/ws/logs"
@@ -11,5 +12,7 @@ async def test_websocket():
             print("📝 Received:", response)
     except Exception as e:
         print("❌ WebSocket Error:", e)
+
+        
 
 asyncio.run(test_websocket())

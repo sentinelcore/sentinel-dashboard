@@ -1,8 +1,7 @@
 # sentinelcore
 
 ## Overview
-SentinelCore is a Python project designed to provide a robust framework for [insert project purpose or functionality here]. It aims to [insert goals or objectives of the project].
-
+SentinelCore is a Python project designed to provide a robust framework for iykyk
 ## Installation
 To install the required dependencies, run the following command:
 
